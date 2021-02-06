@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.layfolk.chat.mapper.SubuserMapper">
+
+    <select id="queryAllSubusers" resultType="Subuser">
+        SELECT * FROM diamand.subuser
+    </select>
+
+    <select id="querySubuserById" resultType="Subuser">
+        SELECT * FROM diamand.subuser WHERE subuser_id = #{subuser_id}
+    </select>
+
+    <select id="querySubuserByName" parameterType="String" resultType="Subuser">
+        SELECT * FROM diamand.subuser where username = #{username}
+    </select>
+
+    <insert id="addSubuser" parameterType="Subuser">
+        INSERT INTO diamand.subuser VALUES (#{subuser_id}, #{username}, #{password}, #{create_time}, #{last_modified_time})
+    </insert>
+
+    <delete id="deleteSubuser" parameterType="String">
+        DELETE FROM diamand.subuser WHERE subuser_id = #{subuser_id}
+    </delete>
+
+    <update id="updateSubuser">
+        UPDATE diamand.subuser SET password = #{password}, last_modified_time = #{last_modified_time} WHERE username = #{username}
+    </update>
+</mapper>

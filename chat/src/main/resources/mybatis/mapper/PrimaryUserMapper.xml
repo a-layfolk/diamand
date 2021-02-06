@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.layfolk.chat.mapper.PrimaryUserMapper">
+
+    <select id="queryAllPrimaryUsers" resultType="PrimaryUser">
+        SELECT * FROM diamand.primary_user
+    </select>
+
+    <select id="queryPrimaryUserById" resultType="PrimaryUser">
+        SELECT * FROM diamand.primary_user WHERE pri_usr_id = #{pri_usr_id}
+    </select>
+
+    <select id="queryPrimaryUserByPhone" parameterType="String" resultType="PrimaryUser">
+        SELECT * FROM diamand.primary_user where phone = #{phone}
+    </select>
+
+    <insert id="addPrimaryUser" parameterType="PrimaryUser">
+        INSERT INTO diamand.primary_user VALUES (#{pri_usr_id}, #{phone}, #{password}, #{gender}, #{create_time}, #{last_modified_time}, #{avatar_img_url});
+    </insert>
+
+    <delete id="deletePrimaryUser" parameterType="String">
+        DELETE FROM diamand.primary_user WHERE pri_usr_id = #{pri_usr_id}
+    </delete>
+
+    <update id="updatePrimaryUser">
+        UPDATE diamand.primary_user SET password = #{password}, gender = #{gender}, last_modified_time = #{last_modified_time}, avatar_img_url = #{avatar_img_url} WHERE phone = #{phone}
+    </update>
+</mapper>
