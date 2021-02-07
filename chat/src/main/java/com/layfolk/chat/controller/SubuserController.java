@@ -5,11 +5,13 @@ import com.layfolk.chat.pojo.Subuser;
 import com.layfolk.chat.service.SubuserServiceImpl;
 import com.layfolk.chat.utils.ResultUtil;
 import com.layfolk.chat.pojo.vo.SubVo;
+import com.layfolk.chat.utils.TokenSubjectUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
+import org.apache.shiro.subject.SubjectContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,13 +41,15 @@ public class SubuserController {
             // 生成 token
             String randomKey = UUID.randomUUID().toString();
 
+            TokenSubjectUtil.saveSubject(randomKey, subject);
+
             Map<String, Object> map = new HashMap<>();
 
             // 往返回数据中放入 token, 为了让一个浏览器可以有多个用户登录, 让 token + 用户名成为键
             map.put("username", subVo.getUsername());
             map.put("token", randomKey);
 
-            // 往返回数据中放入 userInfo
+            // 往返回数据中放入 username 和 token
             return JSON.toJSONString(ResultUtil.succ(map));
         }
         catch (UnknownAccountException e) { // 用户名不存在

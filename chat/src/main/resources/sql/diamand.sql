@@ -16,12 +16,12 @@ CREATE TABLE `primary_user`
 
 -- 往 primary_user 中插入数据
 INSERT INTO `primary_user` VALUES
-('9b846625-705e-4dda-b09d-9ddc4e06ccb8', 
+('9b846625-705e-4dda-b09d-9ddc4e06ccb8',
 '13988888888',
-'123456', 
-TRUE, 
-NOW(), 
-NOW(), 
+'123456',
+TRUE,
+NOW(),
+NOW(),
 'https://cdn.jsdelivr.net/gh/a-layfolk/FigureBed/img/avatar/20210205220241.svg');
 
 
@@ -35,17 +35,18 @@ CREATE TABLE `subuser`
  PRIMARY KEY (`subuser_id`));
 
 -- 插入匿名聊天身份
-INSERT INTO `subuser` VALUES 
-('b31fd837-3087-4c04-94af-577d6d5afb75', '赵一',  '123456', NOW(), NOW()),
-('01d40aa4-c80d-432e-baf2-fe18a8005944', '钱二',  '123456', NOW(), NOW()),
-('96a98c56-83f1-4b36-89c4-77257cd76868', '孙三',  '123456', NOW(), NOW()),
-('3721c793-3abd-49af-aaf7-c4d7cb4c3f6a', '李四',  '123456', NOW(), NOW()),
-('28410131-1a03-4882-9a5a-6c0c9250622d', '周五',  '123456', NOW(), NOW()),
-('21f2305c-9f30-49ec-8823-e8193fba0935', '吴六',  '123456', NOW(), NOW()),
-('2e07f7fe-cc02-4823-b2ff-8d753a9e41a0', '郑七',  '123456', NOW(), NOW()),
-('cbb958fd-7ef7-44a1-bcf5-4a0feec76628', '王八',  '123456', NOW(), NOW()),
-('8f17ab98-db0f-4433-8a42-856f61e3a6d0', '冯九',  '123456', NOW(), NOW()),
-('7ee7ce18-d31c-45ec-8f89-7632da1ef7bb', '陈十',  '123456', NOW(), NOW());
+-- 插入匿名聊天身份
+INSERT INTO `subuser` VALUES
+('b31fd837-3087-4c04-94af-577d6d5afb75', '宋江',  '123456', NOW(), NOW()),
+('01d40aa4-c80d-432e-baf2-fe18a8005944', '卢俊义',  '123456', NOW(), NOW()),
+('96a98c56-83f1-4b36-89c4-77257cd76868', '吴用',  '123456', NOW(), NOW()),
+('3721c793-3abd-49af-aaf7-c4d7cb4c3f6a', '公孙胜',  '123456', NOW(), NOW()),
+('28410131-1a03-4882-9a5a-6c0c9250622d', '关胜',  '123456', NOW(), NOW()),
+('21f2305c-9f30-49ec-8823-e8193fba0935', '林冲',  '123456', NOW(), NOW()),
+('2e07f7fe-cc02-4823-b2ff-8d753a9e41a0', '秦明',  '123456', NOW(), NOW()),
+('cbb958fd-7ef7-44a1-bcf5-4a0feec76628', '呼延灼',  '123456', NOW(), NOW()),
+('8f17ab98-db0f-4433-8a42-856f61e3a6d0', '花荣',  '123456', NOW(), NOW()),
+('7ee7ce18-d31c-45ec-8f89-7632da1ef7bb', '柴进',  '123456', NOW(), NOW());
 
 
  -- 创建表格 avatar
